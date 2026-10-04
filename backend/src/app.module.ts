@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AuthModule } from './auth/auth.module.js';
 import { UsersModule } from './users/users.module.js';
+import { TasksModule } from './tasks/tasks.module.js';
 
 @Module({
   imports: [
@@ -14,7 +15,6 @@ import { UsersModule } from './users/users.module.js';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-
       useFactory: (configService: ConfigService) => {
         return {
           uri: configService.getOrThrow<string>('MONGODB_URL'),
@@ -24,6 +24,7 @@ import { UsersModule } from './users/users.module.js';
 
     UsersModule,
     AuthModule,
+    TasksModule,
   ],
 })
 export class AppModule {}
