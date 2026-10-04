@@ -50,7 +50,7 @@ export class AuthService {
     const accessToken = await this.jwtService.signAsync(payload);
     return {
       message: 'Login successful',
-      token:accessToken,
+      accessToken,
       user: {
         id: user.id,
         name: user.name,
