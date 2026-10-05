@@ -1,7 +1,7 @@
 import {IsEnum,IsNotEmpty,IsOptional,IsString} from 'class-validator';
 
 export enum TaskStatus {
-  Pending = 'Pending',
+  PENDING = 'PENDING',
   InProgress = 'IN_PROGRESS',
   Completed = 'COMPLETED',
 }

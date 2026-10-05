@@ -24,8 +24,8 @@ export class Task {
 
   @Prop({
     required: true,
-    enum: ['Pending', 'IN PROGRESS', 'COMPLETED'],
-    default: 'Pending',
+    enum: ['PENDING', 'IN PROGRESS', 'COMPLETED'],
+    default: 'PENDING',
   })
   status: string;
 
