@@ -23,9 +23,7 @@ export class TasksService {
 
   async findAll(userId: string,search?: string,status?: string,priority?: string,) {
   try {
-    const filter: any = {
-      userId,
-    };
+    const filter: any = {userId};
 
     if (status) {
       filter.status = status;
@@ -59,8 +57,6 @@ export class TasksService {
     );
   }
 }
-
-
 
   async findOne(id: string, userId: string) {
     try {
