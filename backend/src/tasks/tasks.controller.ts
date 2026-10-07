@@ -1,16 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Query,
-  Req,
-  UseGuards,
-  ParseUUIDPipe,
-} from '@nestjs/common';
+import {Body,Controller,Delete,Get,Param,Patch,Post,Query,Req,UseGuards,ParseUUIDPipe} from '@nestjs/common';
 
 import { TasksService } from './tasks.service.js';
 import { CreateTaskDto } from './dto/create-task.dto.js';
@@ -65,11 +53,7 @@ export class TasksController {
     @Body() updateTaskDto: UpdateTaskDto,
     @Req() request: AuthRequest,
   ) {
-    return this.tasksService.update(
-      id,
-      updateTaskDto,
-      request.user.userId,
-    );
+    return this.tasksService.update(id,updateTaskDto,request.user.userId);
   }
 
   @Delete(':id')

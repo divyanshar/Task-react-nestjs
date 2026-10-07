@@ -1,5 +1,5 @@
 // auth.dto.ts
-import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, MaxLength, MinLength } from 'class-validator';
 import { Transform } from 'class-transformer';
 
 export class SignupDto {
@@ -12,6 +12,7 @@ export class SignupDto {
   name: string;
 
   @MinLength(8, { message: 'Password must be at least 8 characters long' })
+  @MaxLength(50, {message:'Password must not exceed 50 characters'})
   password: string;
 }
 

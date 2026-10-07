@@ -17,19 +17,14 @@ export class AuthService {
       throw new BadRequestException('Email already registered');
     }
     const hashedPassword = await bcrypt.hash(signupDto.password, 10);
-    // const user = await this.usersService.createUser({
-    //   name: signupDto.name,
-    //   email: signupDto.email,
-    //   password: hashedPassword,
-    // });
 
     const user = await this.usersService.createUser({
       ...signupDto,
       password:hashedPassword,
     });
     return {
-      message: 'User registered successfully',
-      user:user,
+      message: 'User registered successfully,Please log in',
+      //user:user,
     };
   }
 
@@ -38,10 +33,7 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('Invalid email or password');
     }
-    const checkPass = await bcrypt.compare(
-      loginDto.password,
-      user.password,
-    );
+    const checkPass = await bcrypt.compare(loginDto.password,user.password);
 
     if (!checkPass) {
       throw new UnauthorizedException('Invalid email or password');
